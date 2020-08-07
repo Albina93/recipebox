@@ -1,0 +1,26 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th style="text-align: center;">Title</th>
+            <!-- <th>Author</th>
+            <th>Description</th>
+            <th>Instructions</th> -->
+        </tr>
+    </thead>
+    <tbody>
+        {% for recipe in recipes %}
+        <tr>
+            <td>
+                <a href="/recipes/{{ recipe.id }}">{{ recipe.title }}</a>
+            </td>
+            <!-- <td>{{ recipe.author }}</td>
+            <td>{{ recipe.description }}</td>
+            <td>{{ recipe.instructions }}</td> -->
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
