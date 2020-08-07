@@ -12,7 +12,7 @@ def index(request):
 
 def details(request, recipe_id):
     try:
-        recipe = Recipe.objects.get(id=recipe_id)
+        recipe = Recipe.objects.filter(id=recipe_id).first()
 
     except Recipe.DoesNotExist:
         raise(Http404)
