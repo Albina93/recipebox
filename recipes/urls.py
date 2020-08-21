@@ -5,8 +5,10 @@ from . import views
 # recipes/1
 
 urlpatterns = [
-    path('', views.index, name="recipe_index"),
+    path('', views.index, name="homepage"),
     path('recipes/<int:recipe_id>/', views.details, name="recipe_details"),
-    path('author/<int:author_id>/', views.author, name="author")
+    path('author/<int:author_id>/', views.author, name="author"),
+    path('addrecipe/', views.add_recipe, name="addrecipe"),
+    path('addauthor/', views.add_author, name="addauthor")
 
 ]
