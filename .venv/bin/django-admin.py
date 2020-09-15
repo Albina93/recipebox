@@ -1,4 +1,4 @@
-#!/Users/carl/PythonProjects/recipebox/.venv/bin/python
+#!/Users/nikalmorgan/Desktop/Kenzie/submitted/Q4/recipebox/.venv/bin/python
 # When the django-admin.py deprecation ends, remove this script.
 import warnings
 

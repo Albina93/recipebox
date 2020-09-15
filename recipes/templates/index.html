@@ -1,20 +1,55 @@
-{% extends 'main.html' %}
-
-{% block content %}
+{% extends 'main.html' %} {% block content %}
+{% if request.user.is_authenticated %}
+<h4>Welcome {{ request.user.username }}, to RecipeBox Version 2</h4>
+{% else %}
+<h4>Welcome to RecipeBox Version 2</h4>
+{% endif %}
+<!-- <div class="div_container" style="text-align: center; margin: 70px;">
+  <a
+    href="/login/"
+    class="btn btn-primary btn-lg active"
+    role="button"
+    aria-pressed="true"
+    >LOGIN</a
+  >
+  <a
+    href="/logout/"
+    class="btn btn-primary btn-lg dactive"
+    role="button"
+    aria-pressed="true"
+    >LOGOUT</a
+  >
+</div> -->
 <table class="table table-bordered table-hover">
-    <thead>
-        <tr>
-            <th style="text-align: center;">Title</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for recipe in recipes %}
-        <tr>
-            <td>
-                <a href="/recipes/{{ recipe.id }}">{{ recipe.title }}</a>
-            </td>
-        </tr>
-        {% endfor %}
-    </tbody>
+  <thead>
+    <tr>
+      <th style="text-align: center;">Title</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for recipe in recipes %}
+    <tr>
+      <td>
+        <a href="/recipes/{{ recipe.id }}">{{ recipe.title }}</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
 </table>
+<!-- <div class="div_container" style="text-align: center; margin: 70px;">
+  <a
+    href="/addrecipe/"
+    class="btn btn-primary btn-lg active"
+    role="button"
+    aria-pressed="true"
+    >Add Recipe</a
+  >
+  <a
+    href="/addauthor/"
+    class="btn btn-primary btn-lg dactive"
+    role="button"
+    aria-pressed="true"
+    >Add Author</a
+  >
+</div> -->
 {% endblock %}

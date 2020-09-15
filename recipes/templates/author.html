@@ -2,11 +2,19 @@
 
 {% block content %}
 <dl style="padding-top: 100px;">
-    <dd>{{author.name}}</dd>
-    <dd>{{author.bio}}</dd>
+    <dd>{{ author.name }}</dd>
+    <dd>{{ author.bio }}</dd>
+    <dt>Recipes</dt>
     <ul>
         {% for recipe in recipes %}
-        <li><a href="/recipes/{{ recipe.id }}">{{ recipe.title}}</a></li>
+        <li><a href="/recipes/{{ recipe.id }}">{{ recipe.title }}</a></li>
+
+        {% endfor %}
+    </ul>
+    <dt>Favorites</dt>
+    <ul>
+        {% for favorite in favorites %}
+        <li><a href="/recipes/{{ favorite.id }}">{{ favorite.title }}</a></li>
 
         {% endfor %}
     </ul>
