@@ -25,6 +25,8 @@ class Recipe(models.Model):
     instructions = models.TextField()
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
     date_created = models.DateTimeField(default=timezone.now)
+    favorites = models.ManyToManyField(User, blank=True,
+                                       related_name="favorites")
 
     # def __str__(self):
     #     return f"{self.title} by {self.author.name}"

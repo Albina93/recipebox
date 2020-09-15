@@ -3,12 +3,23 @@
 {% block content %}
 <dl style="padding-top: 100px;">
     <dt>Author</dt>
-    <dd><a href="/author/{{ recipe.author.id }}">{{ recipe.author.name }}</a></dd>
+    <dd><a href="/author/{{recipe.author.id}}/">{{ recipe.author.name }}</a></dd>
     <dt>Description</dt>
     <dd>{{ recipe.description }}</dd>
     <dt>Instructions</dt>
     <dd>{{ recipe.instructions }}</dd>
     <dt>Time</dt>
     <dd>{{ recipe.required_time }}</dd>
+    {% if request.user.is_authenticated %}
+        {% if request.user.username in favorites %}
+        <button><a href="/unfavorite/{{recipe.id}}/">Un-Favorite</a></button>
+        {% else %}
+        <button><a href="/favorite/{{recipe.id}}/">Favorite</a></button>
+        {% endif %}
+    {% else %}
+    <dt>Favorites</dt>
+    <dd>{{ recipe.favorites.count }}</dd>
+    {% endif %}
+    <button><a href="/recipes/{{recipe.id}}/edit/">Edit</a></button>
 </dl>
 {% endblock %}

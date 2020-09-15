@@ -1,6 +1,10 @@
 {% extends 'main.html' %} {% block content %}
-<h4>Authenticated..? {{ request.user.is_authenticated}}</h4>
-<div class="div_container" style="text-align: center; margin: 70px;">
+{% if request.user.is_authenticated %}
+<h4>Welcome {{ request.user.username }}, to RecipeBox Version 2</h4>
+{% else %}
+<h4>Welcome to RecipeBox Version 2</h4>
+{% endif %}
+<!-- <div class="div_container" style="text-align: center; margin: 70px;">
   <a
     href="/login/"
     class="btn btn-primary btn-lg active"
@@ -15,7 +19,7 @@
     aria-pressed="true"
     >LOGOUT</a
   >
-</div>
+</div> -->
 <table class="table table-bordered table-hover">
   <thead>
     <tr>
@@ -32,7 +36,7 @@
     {% endfor %}
   </tbody>
 </table>
-<div class="div_container" style="text-align: center; margin: 70px;">
+<!-- <div class="div_container" style="text-align: center; margin: 70px;">
   <a
     href="/addrecipe/"
     class="btn btn-primary btn-lg active"
@@ -47,5 +51,5 @@
     aria-pressed="true"
     >Add Author</a
   >
-</div>
+</div> -->
 {% endblock %}
